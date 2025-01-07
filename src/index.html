@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./output.css" />
+  </head>
+  <body>
+    <header class="py-5">
+      <nav class="w-[90%] m-auto flex items-center justify-between">
+        <nav class="text-2xl">Logo</nav>
+        <nav class="flex items-center gap-6">
+          <a href="./index.html">Home</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </nav>
+        <nav class="flex items-center gap-10">
+          <i class="bx bx-search text-2xl cursor-pointer"></i>
+          <i class="bx bx-user text-2xl cursor-pointer"></i>
+          <a href="./shop.html" class="relative">
+            <i class="bx bx-shopping-bag text-2xl cursor-pointer"></i>
+            <p
+              class="counter bg-red-700 absolute w-[25px] h-[25px] rounded-full text-[12px] text-white flex items-center justify-center top-[-10px] right-[-14px]"
+            >
+              0
+            </p>
+          </a>
+        </nav>
+      </nav>
+    </header>
+    <section class="carts grid grid-cols-4 gap-6 w-[90%] m-auto"></section>
+    <script type="module" src="../js/main.js"></script>
+  </body>
+</html>
