@@ -23,16 +23,19 @@ function addToCart(data) {
   if (cart.find((value) => value.id === data.id)) {
     cart = cart.map((value) => {
       if (value.id === data.id) {
-        return { ...value, count: (value.count += 1) };
+        return {
+          ...value,
+          count: (value.count += 1),
+          userPrice: value.count * value.price,
+        };
       }
       return value;
     });
     localStorage.setItem("carts", JSON.stringify(cart));
     return;
   }
-  cart = [...cart, { ...data, count: 1 }];
+  cart = [...cart, { ...data, count: 1, userPrice: data.price }];
   localStorage.setItem("carts", JSON.stringify(cart));
   counterLength = cart.length;
   counter.innerHTML = counterLength;
 }
-

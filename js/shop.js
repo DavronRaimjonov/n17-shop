@@ -1,6 +1,8 @@
 let products = document.querySelector(".products");
 const products_ui = document.querySelector(".products_ui");
 const no_data = document.querySelector(".no-data");
+const total_price_element = document.querySelector(".total_price");
+const clear = document.querySelector(".clear");
 let cart = JSON.parse(localStorage.getItem("carts")) || [];
 
 function renderUiProduct(cart) {
@@ -41,7 +43,7 @@ function renderUiProduct(cart) {
                 </div>
                 <h6 
                   class="text-indigo-600  font-manrope font-bold text-xl leading-9 text-right">
-                ${value.price.toLocaleString()} so'm
+                ${value.userPrice.toLocaleString()} so'm
                 </h6>
               </div>
             </div>
@@ -63,25 +65,12 @@ products.addEventListener("click", (e) => {
     deleteData(+id);
   }
   if (e.target.classList.contains("increment")) {
-    cart = cart.map((value) => {
-      if (value.id === +id) {
-        return { ...value, count: (value.count += 1) };
-      }
-      return value;
-    });
-    localStorage.setItem("carts", JSON.stringify(cart));
-    renderUiProduct(cart);
+    editCount("increment", id);
   }
   if (e.target.classList.contains("decrement")) {
-    cart = cart.map((value) => {
-      if (value.id === +id) {
-        return { ...value, count: (value.count -= 1) };
-      }
-      return value;
-    });
-    localStorage.setItem("carts", JSON.stringify(cart));
-    renderUiProduct(cart);
+    editCount("decrement", id);
   }
+
   if (cart.find((value) => value.count <= 0)) {
     deleteData(+id);
   }
@@ -94,5 +83,42 @@ function noData(section, section_404, length) {
     section_404.style.display = "flex";
   }
 }
+function editCount(classList, id) {
+  cart = cart.map((value) => {
+    if (value.id === +id) {
+      if (classList === "decrement") {
+        return {
+          ...value,
+          count: (value.count -= 1),
+          userPrice: value.count * value.price,
+        };
+      }
+      if (classList === "increment") {
+        return {
+          ...value,
+          count: (value.count += 1),
+          userPrice: value.count * value.price,
+        };
+      }
+    }
+    return value;
+  });
+  localStorage.setItem("carts", JSON.stringify(cart));
+  renderUiProduct(cart);
+  totlaPrice();
+}
+function totlaPrice() {
+  let total_price_user = cart.reduce(
+    (acc, value) => (acc += value.userPrice),
+    0
+  );
+
+  total_price_element.textContent = total_price_user.toLocaleString() + " so'm";
+}
+clear.addEventListener("click", () => {
+  localStorage.removeItem("carts");
+  noData(products_ui, no_data, 0);
+});
+totlaPrice();
 noData(products_ui, no_data, cart.length);
 renderUiProduct(cart);
