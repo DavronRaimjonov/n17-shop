@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./output.css" />
+  </head>
+  <body>
+    <div class="flex items-center justify-center gap-10 my-5">
+      <button
+        id="add"
+        class="border border-[#000] w-[200px] h-[30px] rounded-md btn"
+      >
+        Mahsulot qoshing
+      </button>
+      <button
+        id="delete"
+        class="border border-[#000] w-[200px] h-[30px] rounded-md btn"
+      >
+        Mahsulot ochiring
+      </button>
+      <button
+        id="edit"
+        class="border border-[#000] w-[200px] h-[30px] rounded-md btn"
+      >
+        Mahsulot o'zgartring
+      </button>
+    </div>
+    <div class="w-[70%] m-auto add">
+      <h1 class="text-center text-2xl mb-5">Mahsulot qoshing</h1>
+      <form id="post_product" action="" class="flex flex-col">
+        <input
+          required
+          class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+          id="img_file"
+          type="file"
+        />
+
+        <input
+          required
+          class="peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-non border my-4"
+          type="text"
+          placeholder="Mahsulot nomi"
+          id="title"
+        />
+        <input
+          required
+          class="peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-non border my-4"
+          type="number"
+          placeholder="Mahsulot narxi"
+          id="price"
+        />
+        <input
+          required
+          class="peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-non border my-4"
+          type="number"
+          placeholder="Mahsulot oyiga narxi"
+          id="month"
+        />
+        <input
+          required
+          class="peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-non border my-4"
+          type="number"
+          placeholder="Raiting"
+          id="rate"
+        />
+        <button
+          type="submit"
+          class="text-white bg-blue-700 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center w-full"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+    <div class="delete w-[70%] m-auto">
+      <div>
+        <form class="flex flex-col" id="getId">
+          <input
+            required
+            class="peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-non border my-4"
+            type="number"
+            placeholder="Mahsulot Id raqami"
+            id="id"
+          />
+          <button
+            type="submit"
+            class="text-white bg-blue-700 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center w-full"
+          >
+            Get one product
+          </button>
+        </form>
+        <div class="carts w-[300px] m-auto pt-4"></div>
+        <button
+          class="text-white bg-red-700 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center w-full delete-btn"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+    <div class="edit w-[70%] m-auto">
+      <div>
+        <form class="flex flex-col" id="getIdEdit">
+          <input
+            required
+            class="peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-non border my-4"
+            type="number"
+            placeholder="Mahsulot Id raqami"
+            id="id"
+          />
+          <button
+            type="submit"
+            class="text-white bg-blue-700 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center w-full"
+          >
+            Get one product
+          </button>
+        </form>
+        <div class="carts2 w-[300px] m-auto pt-4"></div>
+        <form id="post_product_edit" action="" class="flex-col hidden">
+          <input
+            required
+            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+            id="img_file_edit"
+            type="file"
+          />
+
+          <input
+            required
+            class="peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-non border my-4"
+            type="text"
+            placeholder="Mahsulot nomi"
+            id="title_edit"
+          />
+          <input
+            required
+            class="peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-non border my-4"
+            type="number"
+            placeholder="Mahsulot narxi"
+            id="price_edit"
+          />
+          <input
+            required
+            class="peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-non border my-4"
+            type="number"
+            placeholder="Mahsulot oyiga narxi"
+            id="month_edit"
+          />
+          <input
+            required
+            class="peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-non border my-4"
+            type="number"
+            placeholder="Raiting"
+            id="rate_edit"
+          />
+          <button
+            type="submit"
+            class="text-white bg-blue-700 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center w-full"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+    <script type="module" src="../js/admin.js"></script>
+  </body>
+</html>
