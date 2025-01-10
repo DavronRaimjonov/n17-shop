@@ -62,7 +62,7 @@ function deleteData(id) {
 products.addEventListener("click", (e) => {
   const id = e.target.id;
   if (e.target.classList.contains("deleteelement")) {
-    deleteData(+id);
+    deleteData(id);
   }
   if (e.target.classList.contains("increment")) {
     editCount("increment", id);
@@ -72,7 +72,7 @@ products.addEventListener("click", (e) => {
   }
 
   if (cart.find((value) => value.count <= 0)) {
-    deleteData(+id);
+    deleteData(id);
   }
 });
 function noData(section, section_404, length) {
@@ -85,7 +85,7 @@ function noData(section, section_404, length) {
 }
 function editCount(classList, id) {
   cart = cart.map((value) => {
-    if (value.id === +id) {
+    if (value.id === id) {
       if (classList === "decrement") {
         return {
           ...value,
