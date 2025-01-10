@@ -1,3 +1,7 @@
+if (!localStorage.getItem("user")) {
+  window.location.href = "../src/login.html";
+}
+
 import { useFetch } from "./utils/request.js";
 import { addUIData } from "./utils/ui.js";
 const post_product = document.getElementById("post_product");
@@ -9,7 +13,20 @@ let editForm = document.querySelector(".edit");
 let carts = document.querySelector(".carts");
 let deleteBtn = document.querySelector(".delete-btn");
 let id = localStorage.getItem("id") || "add";
+let users = JSON.parse(localStorage.getItem("user"));
 const request = useFetch();
+
+// header
+
+let name = document.querySelector(".name");
+let signOut = document.querySelector(".sign-out");
+name.innerHTML = users.username;
+signOut.addEventListener("click", () => {
+  localStorage.removeItem("user");
+  window.location.href = "../src/index.html";
+});
+
+// header
 
 btns.forEach((value) => {
   value.addEventListener("click", (e) => {
